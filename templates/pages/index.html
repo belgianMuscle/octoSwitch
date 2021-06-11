@@ -1,0 +1,62 @@
+{% extends 'layouts/main.html' %}
+{% block title %}octoSwitch{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h1 class="mt-5">octoSwitch</h1>
+            <p class="lead">Control your Sound!</p>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 pt-3">
+            <div class="card">
+                <div class="card-header container-fluid">
+                    <div class="row">
+                        <div class="col-10" id="zoneALabel">{{ data.zoneALabel }}</div>
+                        <div class="col-2 float-right text-right">
+                            <input class="form-check-input" type="checkbox" id="zoneASwitch"
+                                {{'checked="checked"' if data.zoneAToggle else ""}}>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="customRange1" class="form-label">Volume</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="range" class="form-range zRangeField align-middle" id="zoneARange" value={{ data.zoneAVolume }} {{"" if data.zoneAToggle else ' disabled="true"'}}>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 pt-3">
+            <div class="card">
+                <div class="card-header container-fluid">
+                    <div class="row">
+                        <div class="col-10" id="zoneBLabel">{{ data.zoneBLabel }}</div>
+                        <div class="col-2 float-right text-right ">
+                                <input class="form-check-input" type="checkbox" id="zoneBSwitch" {{'
+                                checked="checked"' if data.zoneBToggle else ""}}>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3">
+                            <label for="customRange2" class="form-label">Volume</label>
+                        </div>
+                        <div class="col-9">
+                            <input type="range" class="form-range zRangeField align-middle" id="zoneBRange" value={{ data.zoneBVolume }} {{"" if data.zoneBToggle else ' disabled="true"'}}>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
