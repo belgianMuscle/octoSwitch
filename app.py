@@ -108,5 +108,5 @@ if __name__ == '__main__':
     
     octorelay = OctoRelay()
 
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 80))
     app.run(host='127.0.0.1', port=port)
