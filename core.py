@@ -16,16 +16,16 @@ class OctoRelay():
     def __init__(self):
         print('OctoRelay Init')
 
-        #GPIO.setwarnings(False)
-        #GPIO.setmode(GPIO.BCM) 
+        GPIO.setwarnings(False)
+        GPIO.setmode(GPIO.BCM) 
 
         zones = Zone.query.all()
         print(zones)
 
         for zone in zones:
             print('Zone Setup')
-            #GPIO.setup(zone.pinL, GPIO.OUT) 
-            #GPIO.setup(zone.pinR, GPIO.OUT) 
+            GPIO.setup(zone.pinL, GPIO.OUT) 
+            GPIO.setup(zone.pinR, GPIO.OUT) 
     
     def getLabel(self, zone):
         label = ''
@@ -59,8 +59,8 @@ class OctoRelay():
         zoneR = Zone.query.filter_by(key=zone).first()
         if zoneR:
             zoneR.updateToggle(toggl)
-            #GPIO.output(zoneR.pinL,toggl)
-            #GPIO.output(zoneR.pinR,toggl)
+            GPIO.output(zoneR.pinL,toggl)
+            GPIO.output(zoneR.pinR,toggl)
             
     def setZoneLabel(self, zone, label):
         zoneR = Zone.query.filter_by(key=zone).first()
